@@ -84,6 +84,9 @@ void setup() {
     Serial.println("Error initializing ESP-NOW");
     return;
   }
+  
+  //ESP-NOW  register callback function
+  esp_now_register_send_cb(OnDataSent);
 
   //register peer
   esp_now_peer_info_t peerInfo;
